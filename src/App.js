@@ -28,8 +28,8 @@ class App extends Component {
         <h1>Hi, I'm React App!!!</h1>
         <p>This is really working!!</p>
         {/* bind関数内のthisはswitchNameHandlerかsetStateを指し、hogeをセットしている */}
-        <button onClick={this.switchNameHandler.bind(this, "hoge")}>
-          　 Switch Name
+        <button onClick={() => this.switchNameHandler("Maximilian!!")}>
+          Switch Name
         </button>
         <Person
           name={this.state.persons[0].name}
