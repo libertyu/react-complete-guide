@@ -33,12 +33,22 @@ class App extends Component {
   };
 
   render() {
+    const style = {
+      backgroundColor: "white",
+      font: "inherit",
+      border: "10px solid black",
+      padding: "8px;",
+      cursor: "pointer"
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm React App!!!</h1>
         <p>This is really working!!</p>
-        {/* bind関数内のthisはswitchNameHandlerかsetStateを指し、hogeをセットしている */}
-        <button onClick={() => this.switchNameHandler("Maximilian!!")}>
+        <button
+          style={style}
+          onClick={() => this.switchNameHandler("Maximilian!!")}
+        >
           Switch Name
         </button>
         <Person
@@ -48,7 +58,6 @@ class App extends Component {
         <Person
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
-          // onClickイベント自体をパラメータとしてセットしている
           click={this.switchNameHandler.bind(this, "MAX!!")}
           changed={this.nameChangedHandler}
         >
