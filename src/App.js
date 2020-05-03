@@ -22,6 +22,16 @@ class App extends Component {
     });
   };
 
+  nameChangedHandler = event => {
+    this.setState({
+      persons: [
+        { name: "Max", age: "28" },
+        { name: event.target.value, age: "29" },
+        { name: "Tom", age: "40" }
+      ]
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -40,6 +50,7 @@ class App extends Component {
           age={this.state.persons[1].age}
           // onClickイベント自体をパラメータとしてセットしている
           click={this.switchNameHandler.bind(this, "MAX!!")}
+          changed={this.nameChangedHandler}
         >
           My hobby is racing
         </Person>
