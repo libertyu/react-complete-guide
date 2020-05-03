@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 
-const app = props => {
-  const [personsState, setPersonState] = useState({
+class App extends Component {
+  state = {
     persons: [
       { name: "Max", age: "28" },
       { name: "Manu", age: "29" },
       { name: "Alice", age: "30" }
-    ]
-  });
-
-  const [otherState, setOtherState] = useState("some other value")
-
-  console.log(personsState, otherState);
+    ],
+    otherState: "some other value"
+  };
 
   switchNameHandler = newName => {
     this.setState({
@@ -55,4 +52,4 @@ const app = props => {
   }
 }
 
-export default app;
+export default App;
