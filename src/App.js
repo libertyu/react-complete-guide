@@ -5,9 +5,9 @@ import Person from "./Person/Person";
 class App extends Component {
   state = {
     persons: [
-      { name: "Max", age: "28" },
-      { name: "Manu", age: "29" },
-      { name: "Alice", age: "30" }
+      { id: "asd1", name: "Max", age: "28" },
+      { id: "asd2", name: "Manu", age: "29" },
+      { id: "asd3", name: "Alice", age: "30" }
     ],
     otherState: "some other value",
     showPersons: false
@@ -25,10 +25,9 @@ class App extends Component {
 
   deletePersonHandler = personIndex => {
     // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons]
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
-    this.setState({persons: persons})
-
+    this.setState({ persons: persons });
   };
 
   togglePersonsHandler = () => {
@@ -56,6 +55,7 @@ class App extends Component {
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
+                key={person.id}
               />
             );
           })}
