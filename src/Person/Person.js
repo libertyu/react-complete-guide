@@ -2,14 +2,7 @@ import React from "react";
 import "./Person.css";
 
 const person = props => {
-  const style = {
-    "@media (min-width: 500px)": {
-      width: "450px",
-      backgroundColor: "gray"
-    }
-  };
   return (
-    // <div className="Person" style={style}>
     <div>
       <p onClick={props.click}>
         I'm a {props.name} and I am {props.age} years old!
@@ -17,7 +10,6 @@ const person = props => {
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
     </div>
-    /* </div> */
   );
 };
 
