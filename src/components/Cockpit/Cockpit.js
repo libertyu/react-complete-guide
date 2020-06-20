@@ -27,16 +27,16 @@ const cockpit = props => {
     btnClass = classes.Red;
   }
 
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     assignClasses.push(classes.red); // assignClasses =  ["red"]
   }
-  if (props.persons.length <= 1) {
+  if (props.personsLength <= 1) {
     assignClasses.push(classes.bold); // assignClasses =  ["red", "bold"]
   }
 
   return (
     <div className={classes.Cockpit}>
-      <h1>Hi, I'm React App!!!</h1>
+      <h1>{props.title}</h1>
       <p className={assignClasses.join(" ")}>This is really working!!</p>
       <button className={btnClass} onClick={props.clicked}>
         Toggle Persons
@@ -45,4 +45,4 @@ const cockpit = props => {
   );
 };
 
-export default cockpit;
+export default React.memo(cockpit);
