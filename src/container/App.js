@@ -16,13 +16,13 @@ class App extends Component {
     persons: [
       { id: "asd1", name: "Max", age: 28 },
       { id: "asd2", name: "Manu", age: 29 },
-      { id: "asd3", name: "Alice", age: 30 }
+      { id: "asd3", name: "Alice", age: 30 },
     ],
     otherState: "some other value",
     showPersons: false,
     showCockpit: true,
     changeCounter: 0,
-    authenticated: false
+    authenticated: false,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -44,13 +44,13 @@ class App extends Component {
   }
 
   nameChangedHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
+    const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;
     });
 
     // const person = Object.assign({}, this.state.persons[personIndex]);
     const person = {
-      ...this.state.persons[personIndex]
+      ...this.state.persons[personIndex],
     };
 
     person.name = event.target.value;
@@ -61,12 +61,12 @@ class App extends Component {
     this.setState((prevState, props) => {
       return {
         persons: persons,
-        changeCounter: prevState.changeCounter + 1
+        changeCounter: prevState.changeCounter + 1,
       };
     });
   };
 
-  deletePersonHandler = personIndex => {
+  deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
@@ -109,7 +109,7 @@ class App extends Component {
         <AuthContext.Provider
           value={{
             authenticated: this.state.authenticated,
-            login: this.loginHandler
+            login: this.loginHandler,
           }}
         >
           {this.state.showCockpit ? (
